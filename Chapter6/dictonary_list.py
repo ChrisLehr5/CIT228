@@ -23,25 +23,34 @@
 # So I tried again below  
 
 print("------------------Chapter 6, Hands On #3 2nd Attempt---------------------------")
-sony = { 
+
+systems= {
+    "Sony":{ 
     "Console": "Playstation 5",
     "Mascots": ["Crash Bandicoot", "Kratos", "Nathan Drake", "Sackboy"],
     "Price": "499.99",      
     "Best Games": ["Crash Bandicoot", "Kratos", "Nathan Drake", "Sackboy"],
-}
-sega = {
+},
+    "Sega": {
     "Console": "Sega Genesis",
     "Mascots" : ["Sonic", "Tails", "Knuckles"],
     "Price": "299.99",
     "Best Games": ["Rocket Knight", "Buster Busts Loose", "Acrobat"],
-}
-nintendo = {
+},
+    "Nintendo" : {
     "Console": "Nintendo Switch",
     "Mascots": ["Rocket Knight", "Buster Busts Loose", "Acrobat"],
     "Price" : "299.99",
     "Best Games" : ["Fire Emblem", "Beach Volleyball", "Disgaea Remastered"],
+},
 }
 
-gaming = [sony, sega, nintendo]
-for g in gaming:    
-    print(f"\n{g} :")    
+for system, info in systems.items():
+    print(f"\n\tSystem: {system}")
+    console = info['Console']
+    mascot = info['Mascots']
+    price = info['Price']
+
+    print(f"Console: {console}")
+    print(f"Mascots: {mascot}")
+    print(f"Price: ${price}")

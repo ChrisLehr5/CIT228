@@ -8,3 +8,4 @@ print("\nIs game == 'checkers'? I predict false.")
 print(game == 'checkers')
 
 
+print("------------------Chapter 5, Hands On #1---------------------------")
