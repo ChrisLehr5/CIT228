@@ -1,0 +1,3 @@
+In Python, you can be punished by having whitespace. 
+In Python, you can wonder why everything has funny names. 
+In Python, you can feel like a machine learning machine.  
