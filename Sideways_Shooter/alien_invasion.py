@@ -53,9 +53,9 @@ class AlienInvasion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            elif event.type == pygame.KEYDOWN:
+            elif event.type == pygame.KEYDOWN or event.type == ord('s'):
                 self._check_keydown_events(event)
-            elif event.type == pygame.KEYUP:
+            elif event.type == pygame.KEYUP or event.type == ord('w'):
                 self._check_keyup_events(event)
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
@@ -63,9 +63,9 @@ class AlienInvasion:
                
     def _check_keydown_events(self, event):
         """Respond to keypresses"""
-        if event.key == pygame.K_UP:
+        if event.key == pygame.K_UP or event.key == ord('w'):
             self.ship.moving_up = True
-        elif event.key == pygame.K_DOWN:
+        elif event.key == pygame.K_DOWN or event.key == ord('s'):
             self.ship.moving_down = True
         elif event.key == pygame.K_q:
             sys.exit()
@@ -73,9 +73,9 @@ class AlienInvasion:
             self._fire_bullet()
 
     def _check_keyup_events(self, event):
-        if event.key == pygame.K_UP:
+        if event.key == pygame.K_UP  or event.key == ord('w'):
             self.ship.moving_up = False
-        elif event.key == pygame.K_DOWN:
+        elif event.key == pygame.K_DOWN or event.key == ord('s'):
             self.ship.moving_down = False 
 
     def _check_play_button(self,mouse_pos):
@@ -208,27 +208,27 @@ class AlienInvasion:
         #Spacing between each alien is equal to one alien width 
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
-        available_space_y = self.settings.screen_height - (2 * alien_width)
-        number_aliens_y = available_space_y // (2 * alien_width)
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
 
         #Determine the number of rows of aliens that fit on screen
-        ship_height = self.ship.rect.width
-        available_space_x = (self.settings.screen_width -
+        ship_height = self.ship.rect.height
+        available_space_y = (self.settings.screen_height -
                                 (3 * alien_height) - ship_height)
-        number_rows = available_space_x // (2 * alien_height)
+        number_rows = available_space_y // (2 * alien_height)
 
         #Create a full fleet of aliens 
         for row_number in range(number_rows):
-            for alien_number in range(number_aliens_y):
+            for alien_number in range(number_aliens_x):
                 self._create_alien(alien_number, row_number)
 
     def _create_alien(self, alien_number, row_number):
         #Create alien and place in row
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
-        alien.y = alien_height + 2 * alien_height * alien_number
-        alien.rect.y = alien.y
-        alien.rect.x = alien.rect.width + 2 * alien.rect.width * row_number
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
         self.aliens.add(alien)
 
     def _check_fleet_edges(self):
