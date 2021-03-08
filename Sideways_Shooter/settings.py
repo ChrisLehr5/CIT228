@@ -1,49 +1,52 @@
+import pygame
+
 class Settings:
-    """A class to store all the settings from Alien Invasion"""
+    """A class to store all the settings from Pirate Invasion"""
 
     def __init__(self):
         """Initialize games static settings"""
         #Screen settings 
         self.screen_width = 1200
         self.screen_height = 800
-        self.bg_color = (230,230,230)
+        self.bg_color = (62,164,236)  
+        #screen = pygame.display.set_mode((1200,800))      
 
-        #Ship settings         
-        self.ship_limit = 3
+        #Cannon settings         
+        self.cannon_limit = 3
         
-        #Bullet settings       
-        self.bullet_width = 3
-        self.bullet_height = 15
-        self.bullet_color = (60, 60, 60)
-        self.bullets_allowed = 3
+        #Cannonball settings       
+        self.cannonball_width = 8
+        self.cannonball_height = 14
+        self.cannonball_color = (0, 0, 0)
+        self.cannonballs_allowed = 3
 
-        #Alien settings        
+        #Pirate settings        
         self.fleet_drop_speed = 5
 
         #How quickly the game speeds up 
         self.speedup_scale = 1.1 
 
-        #How quickly the alien point values increase 
+        #How quickly the pirate point values increase 
         self.score_scale = 1.5
 
         self.intitalize_dynamic_settings()       
 
     def intitalize_dynamic_settings(self):
         """Intitialize settings that change throughout the game"""
-        self.ship_speed = 1.5
-        self.bullet_speed = 1.5
-        self.alien_speed = .05
+        self.cannon_speed = 1.5
+        self.cannonball_speed = 1.5
+        self.pirate_speed = .3
 
         #fleet direction of 1 represents right; -1 represents left
         self.fleet_direction = 1
         #Scoring 
-        self.alien_points = 50
+        self.pirate_points = 50
     
     def increase_speed(self):
-        """Increase speed settings and alien point values"""
-        self.ship_speed *= self.speedup_scale
-        self.bullet_speed *= self.speedup_scale 
-        self.alien_speed *= self.speedup_scale
+        """Increase speed settings and pirate point values"""
+        self.cannon_speed *= self.speedup_scale
+        self.cannonball_speed *= self.speedup_scale 
+        self.pirate_speed *= self.speedup_scale
 
-        self.alien_points = int(self.alien_points * self.score_scale)
-        print(self.alien_points)
+        self.pirate_points = int(self.pirate_points * self.score_scale)
+        print(self.pirate_points)
