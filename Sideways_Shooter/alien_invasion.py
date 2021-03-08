@@ -1,6 +1,7 @@
 import sys
 import pygame
 
+from pygame import mixer 
 from time import sleep
 from button import Button
 from settings import Settings 
@@ -36,6 +37,10 @@ class AlienInvasion:
 
         #Set the background color
         self.bg_color = (230,230,230)
+
+        #Set background song 
+        mixer.music.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/music/music.wav') 
+        mixer.music.play(-1) 
 
     def run_game(self):
         """Start the main loop for game"""

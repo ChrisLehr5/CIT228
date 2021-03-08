@@ -11,7 +11,7 @@ class Alien(Sprite):
         self.settings = ai_game.settings
 
         #Load the alien image and set its rect attribute 
-        self.image = pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Alien_Invasion/images/alien.bmp')
+        self.image = pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/alien.bmp')
         self.rect = self.image.get_rect()
 
        # Start each new asteroid near the middle of the screen
