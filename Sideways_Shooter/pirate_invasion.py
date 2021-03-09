@@ -20,10 +20,12 @@ class PirateInvasion:
         self.settings = Settings()
         self.screen = pygame.display.set_mode(
         (self.settings.screen_width, self.settings.screen_height))
+        self.background = self.settings.background_image
         pygame.display.set_caption("Pirate Invasion")
 
         #Create an instance to store game statistics
-        #and create a scoreboard         
+        #and create a score
+        # board         
         self.cannon = Cannon(self)
         self.stats= GameStats(self)
         self.sb = Scoreboard(self)       
@@ -37,11 +39,11 @@ class PirateInvasion:
 
         #Set the background color
         self.bg_color = (62,164,236)
-        #bg = pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/background.png')
+        
 
         #Set background song 
-        mixer.music.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/music/music.wav') 
-        mixer.music.play(-1) 
+        #mixer.music.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/music/music.wav') 
+        #mixer.music.play(-1)        
 
     def run_game(self):
         """Start the main loop for game"""
@@ -69,6 +71,9 @@ class PirateInvasion:
                
     def _check_keydown_events(self, event):
         """Respond to keypresses"""
+        #Set the cannonball sound 
+        cannonballSound = pygame.mixer.Sound('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/music/sound.wav')
+
         if event.key == pygame.K_UP or event.key == ord('w'):
             self.cannon.moving_up = True
         elif event.key == pygame.K_DOWN or event.key == ord('s'):
@@ -77,6 +82,7 @@ class PirateInvasion:
             sys.exit()
         elif event.key == pygame.K_SPACE:
             self._fire_cannonball()
+            cannonballSound.play()
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_UP  or event.key == ord('w'):
@@ -146,7 +152,7 @@ class PirateInvasion:
 
             #Increase level
             self.stats.level += 1
-            self.sb.prep_level()
+            self.sb.prep_level()       
 
     def _update_pirates(self):
         """Check if the fleet is at an edge, then update the positions of all the pirates in fleet"""
@@ -192,7 +198,7 @@ class PirateInvasion:
     
     def _update_screen(self):
         """Updates images on the screen, flip to the new screen"""        
-        self.screen.fill(self.bg_color)  
+        self.screen.blit(self.background, [0,0])  
         self.cannon.blitme()
         for cannonball in self.cannonballs.sprites():
             cannonball.draw_cannonball()  

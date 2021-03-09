@@ -7,9 +7,9 @@ class Settings:
         """Initialize games static settings"""
         #Screen settings 
         self.screen_width = 1200
-        self.screen_height = 800
-        self.bg_color = (62,164,236)  
-        #screen = pygame.display.set_mode((1200,800))      
+        self.screen_height = 690
+        self.bg_color = (62,164,236) 
+        self.background_image= pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/background2.jpg')         
 
         #Cannon settings         
         self.cannon_limit = 3
@@ -34,8 +34,8 @@ class Settings:
     def intitalize_dynamic_settings(self):
         """Intitialize settings that change throughout the game"""
         self.cannon_speed = 1.5
-        self.cannonball_speed = 1.5
-        self.pirate_speed = .3
+        self.cannonball_speed = 2.5
+        self.pirate_speed = 1.3
 
         #fleet direction of 1 represents right; -1 represents left
         self.fleet_direction = 1

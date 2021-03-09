@@ -11,7 +11,7 @@ class Pirate(Sprite):
         self.settings = ai_game.settings
 
         #Load the pirate image and set its rect attribute 
-        self.image = pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/pirate.bmp')
+        self.image = pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/pirate.png')
         self.rect = self.image.get_rect()
 
        # Start pirate near the middle of the screen

@@ -12,7 +12,7 @@ class Cannon(Sprite):
         self.screen_rect = ai_game.screen.get_rect()
 
         #Load the image and get its rect
-        self.image = pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/cannon.bmp')
+        self.image = pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/cannon.png')
         self.rect = self.image.get_rect()
 
         #Start each new cannon at the left of the screen
