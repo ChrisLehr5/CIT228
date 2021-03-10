@@ -9,7 +9,8 @@ class Settings:
         self.screen_width = 1200
         self.screen_height = 690
         self.bg_color = (62,164,236) 
-        self.background_image= pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/background2.jpg')         
+        self.background_image= pygame.image.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/images/background2.jpg')   
+        #Background image source: wallpaperup.com      
 
         #Cannon settings         
         self.cannon_limit = 3

@@ -42,8 +42,9 @@ class PirateInvasion:
         
 
         #Set background song 
-        #mixer.music.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/music/music.wav') 
-        #mixer.music.play(-1)        
+        mixer.music.load('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/music/music.wav') 
+        mixer.music.play(-1) 
+        mixer.music.set_volume(0.2)       
 
     def run_game(self):
         """Start the main loop for game"""
@@ -73,6 +74,7 @@ class PirateInvasion:
         """Respond to keypresses"""
         #Set the cannonball sound 
         cannonballSound = pygame.mixer.Sound('C:/Users/Khyr/Desktop/CIT228/Sideways_Shooter/music/sound.wav')
+        mixer.music.set_volume(0.2)      
 
         if event.key == pygame.K_UP or event.key == ord('w'):
             self.cannon.moving_up = True
