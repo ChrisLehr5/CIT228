@@ -1,34 +1,26 @@
 import numpy as np  
 import pandas as pd  
 import matplotlib.pyplot as plt  
+import csv
 
-df= pd.read_csv('TermProject2/data/ufo.csv')
+
+df= pd.read_csv('TermProject2/data/bf.csv')
 print(df.head())
 
-data = pd.read_csv('TermProject2/data/fake.csv')
+high = df["temperature_high"]
+low = df["temperature_low"]
+date = df["date"]
 
-year = df['Year']
-launch = data['Satellite']
-# violent_crime =df['Event_Date']
+ax=plt.subplot()
+ax.scatter(date, high, c=date, cmap="Reds", label="Jan Temps")
+ax.scatter(date,low, c=date, cmap="Blues", label="Feb Temps")
+plt.ylabel('Temperatures')
+plt.xlabel('Years')
+plt.suptitle('Sighting Temperature Density Comparison')
+plt.title('Low temperature sightings vs High temperatures sightings')
 
-# create figure and axis objects with subplots()
-fig,ax = plt.subplots()
-
-# make a plot
-ax.plot(year, year, color="green", marker="+")
-# set x-axis label
-ax.set_xlabel("Year",fontsize=14)
-# set y-axis label
-ax.set_ylabel("Number of Sightings",color="green",fontsize=14)
-
-# twin object for two different y-axis on the sample plot
-ax2=ax.twinx()
-# make a plot with different y-axis using second axis object
-ax2.plot(launch, launch,color="red",marker="o")
-#ax2.set_ylabel("Crime Increase",color="red",fontsize=14)
-plt.suptitle('UFO Sightings By Year')
-#plt.xlim([1899, 2017])
-plt.ylim([0, 20])
-plt.title('1899-2017')
+plt.grid()
 plt.show()
+
+
 
