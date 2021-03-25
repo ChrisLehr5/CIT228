@@ -3,7 +3,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df= pd.read_csv('TermProject2/data/ufo.csv')
+df= pd.read_csv('TermProject2/data/bf.csv')
 print(df.head())
 
 sns.pairplot(df)

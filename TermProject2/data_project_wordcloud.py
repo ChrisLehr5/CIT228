@@ -14,9 +14,9 @@ mpl.rcParams['figure.subplot.bottom']=.1
 
 stopwords = set(STOPWORDS)
 
-data= pd.read_csv('TermProject2/data/ufo.csv')
+data= pd.read_csv('TermProject2/data/bf.csv')
 
-wordcloud = WordCloud(background_color='white',stopwords=stopwords,max_words=400,max_font_size=50,random_state=42).generate(str(data['Summary']))
+wordcloud = WordCloud(background_color='white',stopwords=stopwords,max_words=1000,max_font_size=50,random_state=42).generate(str(data['observed']))
 
 print(wordcloud)
 fig = plt.figure(1)
